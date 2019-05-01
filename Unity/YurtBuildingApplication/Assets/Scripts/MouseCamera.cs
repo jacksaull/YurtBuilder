@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-public class CameraOrbit : MonoBehaviour {
+public class MouseCamera : MonoBehaviour {
 
     private Transform _XForm_Camera;
     private Transform _XForm_Parent;

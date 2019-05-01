@@ -16,5 +16,7 @@ public class CameraButton : MonoBehaviour {
     {
         CameraTransition.SetDesiredViewpoint(buttonNumber);
         Debug.Log("Pressed");
+
+
     }
 }
