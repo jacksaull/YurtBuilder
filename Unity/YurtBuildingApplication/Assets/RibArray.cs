@@ -77,7 +77,7 @@ public class RibArray : MonoBehaviour
         }
 
     }
-    public void updateSelectedYurtPiece()
+    public void updateSelectedYurtPiece(string YurtOption, string ribSelected)
     {
         Debug.Log(RibSelected);
         YurtOption = YurtList.options[YurtList.value].text;
@@ -192,8 +192,16 @@ public class RibArray : MonoBehaviour
          }
     }
 
-    public void RemoveYurtSection()
+    public void RemoveYurtSection(string ribSelected)
     {
+        for (int n = 0; n < 40; n++)
+        {
+            if (Ribs[n].name == RibSelected)
+            {
+                selectedRib = n;
+            }
+        }
+
         int tmpGroupVal = Ribs[selectedRib].GetComponent<RibPartName>().groupNum;
         for (int i = 0; i < SectionHandler.GetComponent<SectionPlacer>().WallSections.Length; i++)
         {
