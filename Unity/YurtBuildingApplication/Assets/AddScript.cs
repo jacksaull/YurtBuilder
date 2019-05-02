@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class AddScript : MonoBehaviour
 {
@@ -21,7 +22,7 @@ public class AddScript : MonoBehaviour
 
     public void AddSection()
     {
-        YurtOption = (GetComponent<Button>().name);
+        YurtOption = (GetComponent<Button>().GetComponentInChildren<TextMeshProUGUI>().text);
 
         for(int i = 0; i < RibButtons.GetComponent<RibButtonArray>().RibButtons.Length; i++)
         {
