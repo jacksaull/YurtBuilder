@@ -8,16 +8,11 @@ public class RibArray : MonoBehaviour
 {
     private int[] CheckRibs = new int[3];
     public GameObject[] Ribs;
-    public Dropdown RibList;
-    public Dropdown YurtList;
     public GameObject PopUp;
-    public Button Remove;
-    public Text YurtPiece;
 
     public GameObject SectionHandler;
 
     string YurtOption;
-    string RibSelected;
     int usedRibs;
     int firstRib;
     int lastRib;
@@ -29,7 +24,6 @@ public class RibArray : MonoBehaviour
     void Start()
     {
         PopUp.SetActive(false);
-        Remove.interactable = !Remove.interactable;
     }
 
     void Update()
@@ -37,71 +31,28 @@ public class RibArray : MonoBehaviour
 
     }
 
-    public void updateSelectedRib()
-    {
-        RibSelected = RibList.options[RibList.value].text;
-        for (int n=0; n<40; n++)
-        {
-            if (Ribs[n].name == RibList.options[RibList.value].text)
-            {
-                Ribs[n].GetComponent<Renderer>().material.color = Color.yellow;
-                YurtPiece.GetComponent<Text>().text = Ribs[n].GetComponent<RibPartName>().PartName;
-                selectedRib = n;
-
-                if (Ribs[n].GetComponent<RibPartName>().PartName == "Unavailable" && Remove.IsInteractable() == true)
-                {
-                    Remove.interactable = !Remove.interactable;
-                }
-                else if (Ribs[n].GetComponent<RibPartName>().PartName == "Free" && Remove.IsInteractable() == true)
-                {
-                    Remove.interactable = !Remove.interactable;
-                }
-                else if (Ribs[n].GetComponent<RibPartName>().PartName != "Unavailable" && Ribs[n].GetComponent<RibPartName>().PartName != "Free" && Remove.IsInteractable() == false)
-                {
-                    Remove.interactable = !Remove.interactable;
-                }
-            }
-
-            if (Ribs[n].name != RibList.options[RibList.value].text && Ribs[n].tag != "Unavailable" && Ribs[n].tag != "Used")
-            {
-                Ribs[n].GetComponent<Renderer>().material.color = Color.blue;
-            }
-            else if (Ribs[n].name != RibList.options[RibList.value].text && Ribs[n].tag == "Unavailable")
-            {
-                Ribs[n].GetComponent<Renderer>().material.color = Color.red;
-            }
-            else if (Ribs[n].name != RibList.options[RibList.value].text && Ribs[n].tag == "Used")
-            {
-                Ribs[n].GetComponent<Renderer>().material.color = Color.green;
-            }
-        }
-
-    }
     public void updateSelectedYurtPiece(string YurtOption, string ribSelected)
     {
-        Debug.Log(RibSelected);
-        YurtOption = YurtList.options[YurtList.value].text;
+        Debug.Log(ribSelected);
         Debug.Log(YurtOption);
 
-        if (YurtOption == "2 Rib Door")
+        if (YurtOption == "")
         {
-            usedRibs = 2;
-            sectionIndex = 0;
+            //usedRibs = 
+            //sectionIndex = 
         }
-        else if (YurtOption == "3 Rib Door")
+        else if (YurtOption == "")
         {
-            usedRibs = 3;
-            sectionIndex = 1;
+
         }
-        else if (YurtOption == "2 Rib Window")
+        else if (YurtOption == "")
         {
-            usedRibs = 2;
-            sectionIndex = 3;
+
         }
 
         for (int n = 0; n < 40; n++)
         {
-            if (Ribs[n].name == RibSelected)
+            if (Ribs[n].name == ribSelected)
             {
                 firstRib = n;
                 curRib = n;
@@ -196,7 +147,7 @@ public class RibArray : MonoBehaviour
     {
         for (int n = 0; n < 40; n++)
         {
-            if (Ribs[n].name == RibSelected)
+            if (Ribs[n].name == ribSelected)
             {
                 selectedRib = n;
             }
@@ -276,7 +227,5 @@ public class RibArray : MonoBehaviour
                 }
             }
         }
-
-        Remove.interactable = !Remove.interactable;
     }
 }
