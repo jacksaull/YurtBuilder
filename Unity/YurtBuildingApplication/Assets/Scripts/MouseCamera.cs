@@ -1,64 +1,88 @@
-﻿using UnityEngine;
+﻿using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
 
-public class MouseCamera : MonoBehaviour {
+public class MouseCamera : MonoBehaviour
+{
 
-    private Transform _XForm_Camera;
-    private Transform _XForm_Parent;
+    public Transform target;
 
-    private Vector3 _LocalRotation;
-    private float _CameraDistance = 2f;
+    private float mouseSensitivity = 4f;
+    private float scrollSensitivity = 2f;
+    private float distance;
+    private float maxDistance = 60f;
+    private float minDistance = 34f;
+    private int yMinLimit = -10;
+    private int yMaxLimit = 90;
+    private float zoomDampening = 5.0f;
+    private float xDeg = 0.0f;
+    private float yDeg = 0.0f;
+    private float currentDistance;
+    private float desiredDistance;
+    private Quaternion currentRotation;
+    private Quaternion desiredRotation;
+    private Quaternion rotation;
+    private Vector3 position;
 
-    public float MouseSensitivity = 4f;
-    public float ScrollSensitivity = 2f;
-    public float OrbitDampening = 10f;
-    public float ScrollDampening = 6f;
-
-
-
-	void Start ()
+    void Start()
     {
-        this._XForm_Camera = this.transform;
-        this._XForm_Parent = this.transform.parent;	
-	}
-	
+        distance = Vector3.Distance(transform.position, target.position);
+        currentDistance = distance;
+        desiredDistance = distance;
+        position = transform.position;
+        rotation = transform.rotation;
+        currentRotation = transform.rotation;
+        desiredRotation = transform.rotation;
+
+        xDeg = Vector3.Angle(Vector3.right, transform.right);
+        yDeg = Vector3.Angle(Vector3.up, transform.up);
+    }
 
 
-
-	void LateUpdate ()
+    void LateUpdate()
     {
-        //Rotate camera based on mouse coordinates
+
+        // If moving mouse
         if (Input.GetAxis("Mouse X") != 0 && Input.GetMouseButton(0) || Input.GetAxis("Mouse Y") != 0 && Input.GetMouseButton(0))
         {
-            _LocalRotation.x += Input.GetAxis("Mouse X") * MouseSensitivity;
-            _LocalRotation.y -= Input.GetAxis("Mouse Y") * MouseSensitivity;
-
-            //Clamps rotation from going into the floor or flipping over the top
-            if (_LocalRotation.y < 0f) { _LocalRotation.y = 0f; }
-            else if (_LocalRotation.y > 60f) { _LocalRotation.y = 60f; }
+            //Vector2 touchposition = Input.GetTouch(0).deltaPosition;
+            xDeg += Input.GetAxis("Mouse X") * mouseSensitivity;
+            yDeg -= Input.GetAxis("Mouse Y") * mouseSensitivity;
+            yDeg = ClampAngle(yDeg, yMinLimit, yMaxLimit);
         }
-            
 
-        //Zooming input from our mouse scroll wheel
-        if (Input.GetAxis("Mouse ScrollWheel") != 0f)
+        // If scrolling mouse wheel
+        if (Input.GetAxis("Mouse ScrollWheel") > 0f)
         {
-            float ScrollAmount = Input.GetAxis("Mouse ScrollWheel") * ScrollSensitivity;
-
-            //makes camera zoom faster the further away it is from the target
-            ScrollAmount *= (this._CameraDistance * 0.3f);
-
-            this._CameraDistance += ScrollAmount * -1f;
-
-            //makes the camera go no closer than 1.5 and no further than 100
-            this._CameraDistance = Mathf.Clamp(this._CameraDistance, 1.5f, 10f);
+            desiredDistance -= scrollSensitivity;
         }
-
-        //actual camera rig transformations
-        Quaternion QT = Quaternion.Euler(_LocalRotation.y, _LocalRotation.x, 0);
-        this._XForm_Parent.rotation = Quaternion.Lerp(this._XForm_Parent.rotation, QT, Time.deltaTime * OrbitDampening);
-
-        if(this._XForm_Camera.localPosition.z != this._CameraDistance * -1f)
+        else if (Input.GetAxis("Mouse ScrollWheel") < 0f)
         {
-            this._XForm_Camera.localPosition = new Vector3(0f, 0f, Mathf.Lerp(this._XForm_Camera.localPosition.z, this._CameraDistance * -1f, Time.deltaTime * ScrollDampening));
+            desiredDistance += scrollSensitivity;
         }
-	}
+
+
+        // Handles rotation
+        desiredRotation = Quaternion.Euler(yDeg, xDeg, 0);
+        currentRotation = transform.rotation;
+        rotation = Quaternion.Lerp(currentRotation, desiredRotation, Time.deltaTime * zoomDampening);
+        transform.rotation = rotation;
+
+        //Handles zooming
+        desiredDistance = Mathf.Clamp(desiredDistance, minDistance, maxDistance);
+        currentDistance = Mathf.Lerp(currentDistance, desiredDistance, Time.deltaTime * zoomDampening);
+        position = target.position - (rotation * Vector3.forward * currentDistance);
+        transform.position = position;
+
+    }
+
+
+    private static float ClampAngle(float angle, float min, float max)
+    {
+        if (angle < -360)
+            angle += 360;
+        if (angle > 360)
+            angle -= 360;
+        return Mathf.Clamp(angle, min, max);
+    }
 }

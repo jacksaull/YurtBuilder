@@ -7990,7 +7990,6 @@ MonoBehaviour:
   - {fileID: 904481943}
   - {fileID: 36473562}
   - {fileID: 545760649}
-  RibList: {fileID: 0}
   PopUp: {fileID: 1890710813}
   SectionHandler: {fileID: 686332886}
 --- !u!4 &433729925
@@ -20894,6 +20893,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1093058507}
   - component: {fileID: 1093058508}
+  - component: {fileID: 1093058509}
   m_Layer: 0
   m_Name: CameraViewFull
   m_TagString: Untagged
@@ -20924,9 +20924,22 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1093058506}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5b1ead764ec8d104fa4d001ec89affa0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  target: {fileID: 125849423}
+--- !u!114 &1093058509
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1093058506}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a67f44f8c077e884fa02a62922710654, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   target: {fileID: 125849423}
@@ -39201,6 +39214,8 @@ GameObject:
   - component: {fileID: 2066180871}
   - component: {fileID: 2066180870}
   - component: {fileID: 2066180875}
+  - component: {fileID: 2066180874}
+  - component: {fileID: 2066180876}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -39280,6 +39295,19 @@ Transform:
   m_Father: {fileID: 1093058507}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2066180874
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2066180869}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a67f44f8c077e884fa02a62922710654, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  target: {fileID: 0}
 --- !u!114 &2066180875
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -39292,13 +39320,78 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 80c0d88a2acb35e479a4d7480a30f6e3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  controlType: Mouse
   viewpoints:
   - {fileID: 674987516}
   - {fileID: 1093058507}
   - {fileID: 1748039114}
   transitionSpeed: 5
-  TouchControls: {fileID: 1093058506}
+  CameraControls: {fileID: 1093058506}
   Cam: {fileID: 2066180872}
+--- !u!114 &2066180876
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2066180869}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8f66c0486354a2f4a93160b2b7e38d5e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 5
+  distance: 0.5
+  target: {fileID: 125849423}
+  input: {x: 0, y: 0}
 --- !u!1 &2083470504
 GameObject:
   m_ObjectHideFlags: 0
@@ -39712,6 +39805,7 @@ GameObject:
   - component: {fileID: 2104624639}
   - component: {fileID: 2104624638}
   - component: {fileID: 2104624637}
+  - component: {fileID: 2104624640}
   m_Layer: 5
   m_Name: 4thButton
   m_TagString: Untagged
@@ -39778,7 +39872,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 2104624638}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 2104624640}
+        m_MethodName: ChangeScene
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &2104624638
@@ -39818,6 +39923,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2104624635}
   m_CullTransparentMesh: 0
+--- !u!114 &2104624640
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2104624635}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ed86914d917ebd94da5273d1d53f60f9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  scene: 0
 --- !u!1 &2108711962
 GameObject:
   m_ObjectHideFlags: 0

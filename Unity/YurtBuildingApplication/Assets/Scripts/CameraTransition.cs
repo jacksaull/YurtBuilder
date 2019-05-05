@@ -4,10 +4,10 @@ using UnityEngine;
 
 public class CameraTransition : MonoBehaviour {
 
-
+    public string controlType;
     public Transform[] viewpoints;
     public float transitionSpeed;
-    public GameObject TouchControls;
+    public GameObject CameraControls;
     Transform currentViewpoint;
     int desiredViewpoint;
     public Camera Cam;
@@ -21,18 +21,32 @@ public class CameraTransition : MonoBehaviour {
 	void Update()
     {
         currentViewpoint = viewpoints[GetDesiredViewpoint()];
-        if(desiredViewpoint == 2)
+        if (desiredViewpoint == 2)
         {
-            TouchControls.GetComponent<TouchCamera>().enabled = false;
             Cam.orthographic = true;
             Cam.orthographicSize = 15f;
+            if (controlType == "Touch")
+            {
+                CameraControls.GetComponent<TouchCamera>().enabled = false;
+            }
+            else if (controlType == "Mouse")
+            {
+                CameraControls.GetComponent<MouseCamera>().enabled = false;
+            }
+            else { Debug.Log("Error: Camera Transition needs to know the Control type used, Mouse or Touch"); }
         }
-        else
-        {
-            TouchControls.GetComponent<TouchCamera>().enabled = true;
+        else {
             Cam.orthographic = false;
+            if (controlType == "Touch")
+            {
+                CameraControls.GetComponent<TouchCamera>().enabled = true;
+            }
+            else if (controlType == "Mouse")
+            {
+                CameraControls.GetComponent<MouseCamera>().enabled = true;
+            }
         }
-	}
+    }
 
     void LateUpdate()
     {
