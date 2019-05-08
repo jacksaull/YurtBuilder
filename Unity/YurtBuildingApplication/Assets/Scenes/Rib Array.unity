@@ -17866,7 +17866,7 @@ GameObject:
   - component: {fileID: 926627446}
   - component: {fileID: 926627448}
   - component: {fileID: 926627447}
-  m_Layer: 5
+  m_Layer: 8
   m_Name: Description
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -18654,8 +18654,8 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_Children:
-  - {fileID: 1890710814}
   - {fileID: 1841307701}
+  - {fileID: 1890710814}
   - {fileID: 681386666}
   m_Father: {fileID: 0}
   m_RootOrder: 5
@@ -23997,7 +23997,7 @@ GameObject:
   - component: {fileID: 1200960524}
   - component: {fileID: 1200960523}
   - component: {fileID: 1200960522}
-  m_Layer: 5
+  m_Layer: 8
   m_Name: Button
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -26496,7 +26496,7 @@ GameObject:
   - component: {fileID: 1326206670}
   - component: {fileID: 1326206672}
   - component: {fileID: 1326206671}
-  m_Layer: 5
+  m_Layer: 8
   m_Name: Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -35937,7 +35937,7 @@ RectTransform:
   - {fileID: 1234790113}
   - {fileID: 938644693}
   m_Father: {fileID: 951711230}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -36538,7 +36538,7 @@ GameObject:
   - component: {fileID: 1890710814}
   - component: {fileID: 1890710816}
   - component: {fileID: 1890710815}
-  m_Layer: 5
+  m_Layer: 8
   m_Name: Pop-Up
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -36554,17 +36554,17 @@ RectTransform:
   m_GameObject: {fileID: 1890710813}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 56}
-  m_LocalScale: {x: 1.9435201, y: 1.667783, z: 1.5352876}
+  m_LocalScale: {x: 3.0100374, y: 2.0447683, z: 2.091676}
   m_Children:
   - {fileID: 1926418960}
   - {fileID: 926627446}
   - {fileID: 1200960521}
   m_Father: {fileID: 951711230}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -123, y: 0}
+  m_AnchoredPosition: {x: -3, y: -29}
   m_SizeDelta: {x: -514.4, y: -175.2}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1890710815
@@ -37523,7 +37523,7 @@ GameObject:
   - component: {fileID: 1926418960}
   - component: {fileID: 1926418962}
   - component: {fileID: 1926418961}
-  m_Layer: 5
+  m_Layer: 8
   m_Name: Title
   m_TagString: Untagged
   m_Icon: {fileID: 0}
