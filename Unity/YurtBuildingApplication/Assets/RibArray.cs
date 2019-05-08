@@ -6,7 +6,7 @@ using UnityEngine.UI;
 
 public class RibArray : MonoBehaviour
 {
-    private int[] CheckRibs = new int[3];
+    private int[] CheckRibs = new int[4];
     public GameObject[] Ribs;
     public GameObject PopUp;
 
@@ -36,18 +36,25 @@ public class RibArray : MonoBehaviour
         Debug.Log(ribSelected);
         Debug.Log(YurtOption);
 
-        if (YurtOption == "")
+        if (YurtOption == "Single Curved")
         {
-            //usedRibs = 
-            //sectionIndex = 
+            usedRibs = 3;
+            sectionIndex = 0;
         }
-        else if (YurtOption == "")
+        else if (YurtOption == "Double Curved")
         {
-
+            usedRibs = 4;
+            sectionIndex = 1;
         }
-        else if (YurtOption == "")
+        else if (YurtOption == "Single Porthole")
         {
-
+            usedRibs = 3;
+            sectionIndex = 2;
+        }
+        else if (YurtOption == "Single Full Window")
+        {
+            usedRibs = 3;
+            sectionIndex = 3;
         }
 
         for (int n = 0; n < 40; n++)
@@ -96,7 +103,7 @@ public class RibArray : MonoBehaviour
             Ribs[tmp].GetComponent<RibPartName>().groupNum = groupValue;
         }
 
-        for (int j = 0; j < usedRibs-1; j++)
+        for (int j = 0; j < 1; j++)
         {
             int tmp = CheckRibs[j];
 
@@ -159,8 +166,10 @@ public class RibArray : MonoBehaviour
             if(tmpGroupVal == SectionHandler.GetComponent<SectionPlacer>().WallSections[i].GetComponent<WallSectionHandler>().GroupNumber)
             {
                 SectionHandler.GetComponent<SectionPlacer>().WallSections[i].GetComponent<MeshFilter>().mesh = SectionHandler.GetComponent<SectionPlacer>().ModelMeshes[4];
+                SectionHandler.GetComponent<SectionPlacer>().WallSections[i].GetComponent<MeshRenderer>().materials = SectionHandler.GetComponent<SectionPlacer>().ModelRenderer[4].sharedMaterials;
                 SectionHandler.GetComponent<SectionPlacer>().WallSections[i].GetComponent<WallSectionHandler>().GroupNumber = 0;
                 SectionHandler.GetComponent<SectionPlacer>().WallSections[i].GetComponent<WallSectionHandler>().PartName = "Free";
+                SectionHandler.GetComponent<SectionPlacer>().WallSections[i].SetActive(false);
             }
             if(tmpGroupVal == Ribs[i].GetComponent<RibPartName>().groupNum)
             {

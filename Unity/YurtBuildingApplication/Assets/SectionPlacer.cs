@@ -7,6 +7,7 @@ public class SectionPlacer : MonoBehaviour
 {
     public GameObject[] WallSections;
     public Mesh[] ModelMeshes;
+    public MeshRenderer[] ModelRenderer;
     public int usedWalls = 0;
 
     void Start()
@@ -22,29 +23,41 @@ public class SectionPlacer : MonoBehaviour
 
     public void ReplaceSections(int ribIndex, int sectionIndex, int groupValue, string YurtPiece)
     {
-        if (YurtPiece == "2 Rib Door")
+        if (YurtPiece == "Single Curved")
         {
             WallSections[ribIndex].GetComponent<WallSectionHandler>().GroupNumber = groupValue;
-            WallSections[ribIndex].GetComponent<WallSectionHandler>().PartName = "2 Rib Door";
+            WallSections[ribIndex].GetComponent<WallSectionHandler>().PartName = "Single Curved";
 
-            WallSections[ribIndex].GetComponent<MeshFilter>().mesh = ModelMeshes[sectionIndex + usedWalls];
-            usedWalls++;
+            WallSections[ribIndex].GetComponent<MeshFilter>().mesh = ModelMeshes[sectionIndex];
+            WallSections[ribIndex].GetComponent<MeshRenderer>().materials = ModelRenderer[sectionIndex].sharedMaterials;
+            WallSections[ribIndex].SetActive(true);
         }
-        else if (YurtPiece == "3 Rib Door")
+        else if (YurtPiece == "Double Curved")
         {
             WallSections[ribIndex].GetComponent<WallSectionHandler>().GroupNumber = groupValue;
-            WallSections[ribIndex].GetComponent<WallSectionHandler>().PartName = "3 Rib Door";
+            WallSections[ribIndex].GetComponent<WallSectionHandler>().PartName = "Double Curved";
 
-            WallSections[ribIndex].GetComponent<MeshFilter>().mesh = ModelMeshes[sectionIndex + usedWalls];
-            usedWalls++;
+            WallSections[ribIndex].GetComponent<MeshFilter>().mesh = ModelMeshes[sectionIndex];
+            WallSections[ribIndex].GetComponent<MeshRenderer>().materials = ModelRenderer[sectionIndex].sharedMaterials;
+            WallSections[ribIndex].SetActive(true);
         }
-        else if (YurtPiece == "2 Rib Window")
+        else if (YurtPiece == "Single Porthole")
         {
             WallSections[ribIndex].GetComponent<WallSectionHandler>().GroupNumber = groupValue;
-            WallSections[ribIndex].GetComponent<WallSectionHandler>().PartName = "2 Rib Window";
+            WallSections[ribIndex].GetComponent<WallSectionHandler>().PartName = "Single Porthole";
 
-            WallSections[ribIndex].GetComponent<MeshFilter>().mesh = ModelMeshes[sectionIndex + usedWalls];
-            usedWalls++;
+            WallSections[ribIndex].GetComponent<MeshFilter>().mesh = ModelMeshes[sectionIndex];
+            WallSections[ribIndex].GetComponent<MeshRenderer>().materials = ModelRenderer[sectionIndex].sharedMaterials;
+            WallSections[ribIndex].SetActive(true);
+        }
+        else if (YurtPiece == "Single Full Window")
+        {
+            WallSections[ribIndex].GetComponent<WallSectionHandler>().GroupNumber = groupValue;
+            WallSections[ribIndex].GetComponent<WallSectionHandler>().PartName = "Single Full Window";
+
+            WallSections[ribIndex].GetComponent<MeshFilter>().mesh = ModelMeshes[sectionIndex];
+            WallSections[ribIndex].GetComponent<MeshRenderer>().materials = ModelRenderer[sectionIndex].sharedMaterials;
+            WallSections[ribIndex].SetActive(true);
         }
     }
 }
