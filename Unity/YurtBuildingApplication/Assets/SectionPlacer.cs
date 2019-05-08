@@ -59,5 +59,50 @@ public class SectionPlacer : MonoBehaviour
             WallSections[ribIndex].GetComponent<MeshRenderer>().materials = ModelRenderer[sectionIndex].sharedMaterials;
             WallSections[ribIndex].SetActive(true);
         }
+        else if (YurtPiece == "Framed Small")
+        {
+            WallSections[ribIndex].GetComponent<WallSectionHandler>().GroupNumber = groupValue;
+            WallSections[ribIndex].GetComponent<WallSectionHandler>().PartName = "Framed Small";
+
+            WallSections[ribIndex].GetComponent<MeshFilter>().mesh = ModelMeshes[sectionIndex];
+            WallSections[ribIndex].GetComponent<MeshRenderer>().materials = ModelRenderer[sectionIndex].sharedMaterials;
+            WallSections[ribIndex].SetActive(true);
+        }
+        else if (YurtPiece == "Framed Medium")
+        {
+            WallSections[ribIndex].GetComponent<WallSectionHandler>().GroupNumber = groupValue;
+            WallSections[ribIndex].GetComponent<WallSectionHandler>().PartName = "Framed Medium";
+
+            WallSections[ribIndex].GetComponent<MeshFilter>().mesh = ModelMeshes[sectionIndex];
+            WallSections[ribIndex].GetComponent<MeshRenderer>().materials = ModelRenderer[sectionIndex].sharedMaterials;
+            WallSections[ribIndex].SetActive(true);
+        }
+        else if (YurtPiece == "Framed Large")
+        {
+            WallSections[ribIndex].GetComponent<WallSectionHandler>().GroupNumber = groupValue;
+            WallSections[ribIndex].GetComponent<WallSectionHandler>().PartName = "Framed Large";
+
+            WallSections[ribIndex].GetComponent<MeshFilter>().mesh = ModelMeshes[sectionIndex];
+            WallSections[ribIndex].GetComponent<MeshRenderer>().materials = ModelRenderer[sectionIndex].sharedMaterials;
+            WallSections[ribIndex].SetActive(true);
+        }
+        else if (YurtPiece == "PVC Round")
+        {
+            WallSections[ribIndex].GetComponent<WallSectionHandler>().GroupNumber = groupValue;
+            WallSections[ribIndex].GetComponent<WallSectionHandler>().PartName = "PVC Round";
+
+            WallSections[ribIndex].GetComponent<MeshFilter>().mesh = ModelMeshes[sectionIndex];
+            WallSections[ribIndex].GetComponent<MeshRenderer>().materials = ModelRenderer[sectionIndex].sharedMaterials;
+            WallSections[ribIndex].SetActive(true);
+        }
+        else if (YurtPiece == "PVC Square")
+        {
+            WallSections[ribIndex].GetComponent<WallSectionHandler>().GroupNumber = groupValue;
+            WallSections[ribIndex].GetComponent<WallSectionHandler>().PartName = "PVC Square";
+
+            WallSections[ribIndex].GetComponent<MeshFilter>().mesh = ModelMeshes[sectionIndex];
+            WallSections[ribIndex].GetComponent<MeshRenderer>().materials = ModelRenderer[sectionIndex].sharedMaterials;
+            WallSections[ribIndex].SetActive(true);
+        }
     }
 }

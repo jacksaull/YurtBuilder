@@ -12468,12 +12468,22 @@ MonoBehaviour:
   - {fileID: 4300000, guid: 05b0437f5dc50d343b507a2c954d2ff5, type: 3}
   - {fileID: 4300000, guid: 47db42c5a0af0824f97372ffb24bd1d8, type: 3}
   - {fileID: 4300000, guid: 030644d542503e54d842fbdffbe01f3f, type: 3}
+  - {fileID: 4300000, guid: 70dce1b60eeea904a87d80410605afcc, type: 3}
+  - {fileID: 4300000, guid: eeb398d6f8cee5b46b2accc782b0ee93, type: 3}
+  - {fileID: 4300000, guid: ec4fadab1dc94524cb1bc02a7368b12a, type: 3}
+  - {fileID: 4300000, guid: c0cf33d3875751747ba16319459fa22e, type: 3}
+  - {fileID: 4300000, guid: 9bd849e171c1add4c9ad8702b621ad50, type: 3}
   - {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
   ModelRenderer:
   - {fileID: 2300000, guid: 75e8add8211bf7a4ebdec7a57408b33e, type: 3}
   - {fileID: 2300000, guid: 05b0437f5dc50d343b507a2c954d2ff5, type: 3}
   - {fileID: 2300000, guid: 47db42c5a0af0824f97372ffb24bd1d8, type: 3}
   - {fileID: 2300000, guid: 030644d542503e54d842fbdffbe01f3f, type: 3}
+  - {fileID: 2300000, guid: 70dce1b60eeea904a87d80410605afcc, type: 3}
+  - {fileID: 2300000, guid: eeb398d6f8cee5b46b2accc782b0ee93, type: 3}
+  - {fileID: 2300000, guid: ec4fadab1dc94524cb1bc02a7368b12a, type: 3}
+  - {fileID: 2300000, guid: c0cf33d3875751747ba16319459fa22e, type: 3}
+  - {fileID: 2300000, guid: 9bd849e171c1add4c9ad8702b621ad50, type: 3}
   - {fileID: 2300000, guid: 75e8add8211bf7a4ebdec7a57408b33e, type: 3}
   usedWalls: 0
 --- !u!4 &686332888

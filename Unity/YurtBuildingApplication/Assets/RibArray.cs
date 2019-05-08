@@ -56,6 +56,31 @@ public class RibArray : MonoBehaviour
             usedRibs = 3;
             sectionIndex = 3;
         }
+        else if (YurtOption == "Framed Small")
+        {
+            usedRibs = 2;
+            sectionIndex = 4;
+        }
+        else if (YurtOption == "Framed Medium")
+        {
+            usedRibs = 3;
+            sectionIndex = 5;
+        }
+        else if (YurtOption == "Framed Large")
+        {
+            usedRibs = 4;
+            sectionIndex = 6;
+        }
+        else if (YurtOption == "PVC Round")
+        {
+            usedRibs = 3;
+            sectionIndex = 7;
+        }
+        else if (YurtOption == "PVC Square")
+        {
+            usedRibs = 3;
+            sectionIndex = 8;
+        }
 
         for (int n = 0; n < 40; n++)
         {
@@ -165,8 +190,8 @@ public class RibArray : MonoBehaviour
         {
             if(tmpGroupVal == SectionHandler.GetComponent<SectionPlacer>().WallSections[i].GetComponent<WallSectionHandler>().GroupNumber)
             {
-                SectionHandler.GetComponent<SectionPlacer>().WallSections[i].GetComponent<MeshFilter>().mesh = SectionHandler.GetComponent<SectionPlacer>().ModelMeshes[4];
-                SectionHandler.GetComponent<SectionPlacer>().WallSections[i].GetComponent<MeshRenderer>().materials = SectionHandler.GetComponent<SectionPlacer>().ModelRenderer[4].sharedMaterials;
+                SectionHandler.GetComponent<SectionPlacer>().WallSections[i].GetComponent<MeshFilter>().mesh = SectionHandler.GetComponent<SectionPlacer>().ModelMeshes[9];
+                SectionHandler.GetComponent<SectionPlacer>().WallSections[i].GetComponent<MeshRenderer>().materials = SectionHandler.GetComponent<SectionPlacer>().ModelRenderer[9].sharedMaterials;
                 SectionHandler.GetComponent<SectionPlacer>().WallSections[i].GetComponent<WallSectionHandler>().GroupNumber = 0;
                 SectionHandler.GetComponent<SectionPlacer>().WallSections[i].GetComponent<WallSectionHandler>().PartName = "Free";
                 SectionHandler.GetComponent<SectionPlacer>().WallSections[i].SetActive(false);
