@@ -6,17 +6,16 @@ public class TouchCamera : MonoBehaviour
 {
 
     public Transform target;
-    float distance = 20f;
-    float maxDistance = 60f;
-    float minDistance = 25f;
-    float xSpeed = 200.0f;
-    float ySpeed = 200.0f;
-    int yMinLimit = -5;
-    int yMaxLimit = 90;
-    float zoomSpeed = 50.0f;
-    //float panSpeed = 0.3f;
-    float zoomDampening = 5.0f;
 
+    private float distance = 20f;
+    private float maxDistance = 60f;
+    private float minDistance = 25f;
+    private float xSpeed = 50.0f;
+    private float ySpeed = 50.0f;
+    private int yMinLimit = -5;
+    private int yMaxLimit = 90;
+    private float zoomSpeed = 50.0f;
+    private float zoomDampening = 5.0f;
     private float xDeg = 0.0f;
     private float yDeg = 0.0f;
     private float currentDistance;

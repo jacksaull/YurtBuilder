@@ -21799,7 +21799,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1093058506}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a67f44f8c077e884fa02a62922710654, type: 3}
   m_Name: 
@@ -40462,7 +40462,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 80c0d88a2acb35e479a4d7480a30f6e3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  controlType: Mouse
+  controlType: Touch
   viewpoints:
   - {fileID: 674987516}
   - {fileID: 1093058507}
